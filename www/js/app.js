@@ -74,6 +74,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    .state('app.category-list', {
+      url: '/category-list',
+      views: {
+        'menuContent': {
+          templateUrl: 'views/category/category-list.html',
+          controller: 'CategoryListCtrl'
+        }
+      }
+    })
 
     .state('list-inset', {
       url: '/list-inset',
