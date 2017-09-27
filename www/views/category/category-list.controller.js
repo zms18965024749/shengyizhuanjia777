@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  angular.module('starter.controllers').controller('CategoryListCtrl',['$scope',function ($scope) {
+  angular.module('starter.controllers').controller('CategoryListCtrl',['$scope','$ionicHistory','$ionicActionSheet' ,function ($scope,$ionicHistory,$ionicActionSheet) {
     $scope.categories = [
       {
         ID:1,
@@ -92,6 +92,7 @@
       }
     ];
     $scope.activeCategory = {};
+    //$scope.activeSubCategory = {};
     if ($scope.categories.length > 0){
       $scope.activeCategory =$scope.categories[0];
     }
@@ -101,6 +102,44 @@
         $scope.activeCategory = $scope.categories[index];
       }
     };
+
+    $scope.selectSubCategory = function (date) {
+      console.log(date);
+      $scope.activeSubCategory = date;
+      $ionicHistory.goBack();
+
+    };
+
+    $scope.showActionSheet = function () {
+      $ionicActionSheet.show({
+        buttons:[
+          {
+            text:'<b>新增小分类</b>'
+          },
+          {
+            text:'编辑分类'
+          }
+        ],
+        cancelText:'取消',
+        buttonClicked:function (index) {
+          switch (index){
+            case 0:
+              $scope.gotoCategoryAdd();
+              break;
+            case 1:
+
+              break;
+          }
+
+        },
+        titleText:'更多操作'
+      });
+
+    };
+    $scope.gotoCategoryAdd = function () {
+      location.href = '#/app/category-add/' + $scope.activeCategory.ID + '/' + $scope.activeCategory.Name;
+
+    }
 
   }]);
 

@@ -74,25 +74,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('app.category-list', {
-      url: '/category-list',
-      views: {
-        'menuContent': {
-          templateUrl: 'views/category/category-list.html',
-          controller: 'CategoryListCtrl'
-        }
-      }
-    })
 
-    .state('list-inset', {
-      url: '/list-inset',
-          templateUrl: 'views/list-inset/list-inset.html',
+    .state('forget-password', {
+      url: '/forget-password',
+          templateUrl: 'views/forget-password/forget-password.html',
     })
 
     .state('login', {
       url: '/login',
           templateUrl: 'views/login/login.html',
           controller: 'LoginCtrl'
+    })
+    .state('app.category-list', {
+      url: '/category-list',
+      views:{
+        'menuContent':{
+          templateUrl: 'views/category/category-list.html',
+          controller: 'CategoryListCtrl'
+        }
+      }
+
+    })
+    .state('app.category-add', {
+      url: '/category-add/:id/:name',
+      views:{
+        'menuContent':{
+          templateUrl: 'views/category/category-add.html',
+          controller: 'CategoryAddCtrl'
+        }
+      }
+
     })
   .state('app.single', {
     url: '/playlists/:playlistId',
