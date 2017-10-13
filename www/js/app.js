@@ -75,9 +75,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('forget-password', {
-      url: '/forget-password',
-          templateUrl: 'views/forget-password/forget-password.html',
+
+    .state('list-inset', {
+      url: '/list-inset',
+          templateUrl: 'views/list-inset/list-inset.html',
     })
 
     .state('login', {
@@ -97,14 +98,79 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
     .state('app.category-add', {
       url: '/category-add/:id/:name',
-      views:{
-        'menuContent':{
+      views: {
+        'menuContent': {
           templateUrl: 'views/category/category-add.html',
           controller: 'CategoryAddCtrl'
         }
       }
+    })
+        .state('app.product-list', {
+          url: '/product-list',
+          views:{
+            'menuContent':{
+              templateUrl: 'views/product/product-list.html',
+              controller: 'ProductListCtrl'
+            }
+          }
 
     })
+
+    .state('app.product-add', {
+      url: '/product-add',
+      views:{
+        'menuContent':{
+          templateUrl: 'views/product/product-add.html',
+          controller: 'ProductAddCtrl'
+        }
+      }
+
+    })
+      .state('app.shop-edit', {
+        url: '/shop-edit',
+        params:{title:'',property:''},
+        views:{
+          'menuContent':{
+            templateUrl: 'views/shop/shop-edit.html',
+            controller: 'ShopEditCtrl'
+          }
+        }
+
+      })
+
+      .state('app.shop', {
+        url: '/shop',
+        views:{
+          'menuContent':{
+            templateUrl: 'views/shop/shop.html',
+            controller: 'ShopCtrl'
+          }
+        }
+
+      })
+
+    .state('app.setting', {
+      url: '/setting',
+      views:{
+        'menuContent':{
+          templateUrl: 'views/setting/setting.html',
+          controller: 'SettingCtrl'
+        }
+      }
+
+    })
+
+    .state('app.change-password', {
+      url: '/change-password',
+      views:{
+        'menuContent':{
+          templateUrl: 'views/login/change-password.html',
+          controller: 'ChangePasswordCtrl'
+        }
+      }
+
+    })
+
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
