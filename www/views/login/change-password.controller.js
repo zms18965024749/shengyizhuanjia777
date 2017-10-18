@@ -1,26 +1,19 @@
 (function () {
   'use strict';
   angular.module('starter.controllers')
-    .controller('ChangePasswordCtrl',['$scope','localStorageService','$ionicPopup','popupService',function ($scope,localStorageService,$ionicPopup,popupService) {
+    .controller('ChangePasswordCtrl',['$scope','localStorageService','$ionicPopup','$state',function ($scope,localStorageService,$ionicPopup,$state) {
       $scope.user={
         oldPassword:'',
         password:'',
         confirmPassword:''
       };
-      $scope.save = function () {
-        popupService.toast('ANLOX');
-        popupService.alert('SD');
-        console.log(changePasswordForm.$valid);
-        if(changePasswordForm.$valid){
-          console.log('save');
-          popupService.toast('SD')
-        }
-      }
+
       $scope.save =function () {
-        var account = localStorageService.get('User')
-        if (account.password === $scope.user.oldPassword && $scope.user.password===$scope.user.confirmPassword) {
+        var account = localStorageService.get('user');
+        if (account.password == $scope.user.oldPassword) {
           account.password=$scope.user.password;
-          localStorageService.update('User', account);
+          localStorageService.update('user', account);
+          $state.go('login');
         }
         else {
           $ionicPopup.alert({
