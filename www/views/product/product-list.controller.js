@@ -18,14 +18,14 @@
           $scope.products = [
             {
               ID:1
-              ,Images:['views/product/images/1.jpg']
+              ,Images:['views/product/image/1.jpg']
               ,Name:'iphone7'
               ,Store:12
               ,Barcode:'121212'
             }
             ,{
               ID:2
-              ,Images:['views/product/images/2.jpg']
+              ,Images:['views/product/image/2.jpg']
               ,Name:'note8'
               ,Store:120
               ,Barcode:'1212131312'
@@ -33,7 +33,7 @@
             }
             ,{
               ID:3
-              ,Images:['views/product/images/3.jpg']
+              ,Images:['views/product/image/3.jpg']
               ,Name:'mix2'
               ,Store:131
               ,Barcode:'12115164212'
@@ -42,7 +42,7 @@
           $scope.sourceProducts = angular.copy($scope.products)
         }, 2000);
 
-        
+
 
       });
       $scope.getByName = function () {
